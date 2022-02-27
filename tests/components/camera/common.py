@@ -49,8 +49,10 @@ def async_snapshot(hass, filename, entity_id=None):
         DOMAIN, SERVICE_SNAPSHOT, data))
 
 
-def mock_camera_prefs(hass, entity_id, prefs={}):
+def mock_camera_prefs(hass, entity_id, prefs=None):
     """Fixture for cloud component."""
+    if prefs is None:
+        prefs = {}
     prefs_to_set = {
         PREF_PRELOAD_STREAM: True,
     }
