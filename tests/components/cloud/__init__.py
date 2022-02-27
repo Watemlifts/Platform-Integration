@@ -19,8 +19,10 @@ async def mock_cloud(hass, config=None):
         await cloud_inst.start()
 
 
-def mock_cloud_prefs(hass, prefs={}):
+def mock_cloud_prefs(hass, prefs=None):
     """Fixture for cloud component."""
+    if prefs is None:
+        prefs = {}
     prefs_to_set = {
         const.PREF_ENABLE_ALEXA: True,
         const.PREF_ENABLE_GOOGLE: True,

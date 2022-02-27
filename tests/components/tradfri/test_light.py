@@ -221,8 +221,12 @@ async def setup_gateway(hass, mock_gateway, mock_api):
     )
 
 
-def mock_light(test_features={}, test_state={}, n=0):
+def mock_light(test_features=None, test_state=None, n=0):
     """Mock a tradfri light."""
+    if test_features is None:
+        test_features = {}
+    if test_state is None:
+        test_state = {}
     mock_light_data = Mock(
         **test_state
     )
@@ -422,8 +426,10 @@ async def test_turn_off(hass, mock_gateway, mock_api):
     assert states.state == 'off'
 
 
-def mock_group(test_state={}, n=0):
+def mock_group(test_state=None, n=0):
     """Mock a Tradfri group."""
+    if test_state is None:
+        test_state = {}
     default_state = {
         'state': False,
         'dimmer': 0,

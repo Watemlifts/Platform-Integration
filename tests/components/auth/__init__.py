@@ -18,9 +18,13 @@ BASE_CONFIG = [{
 EMPTY_CONFIG = []
 
 
-async def async_setup_auth(hass, aiohttp_client, provider_configs=BASE_CONFIG,
-                           module_configs=EMPTY_CONFIG, setup_api=False):
+async def async_setup_auth(hass, aiohttp_client, provider_configs=None,
+                           module_configs=None, setup_api=False):
     """Set up authentication and create an HTTP client."""
+    if provider_configs is None:
+        provider_configs = BASE_CONFIG
+    if module_configs is None:
+        module_configs = EMPTY_CONFIG
     hass.auth = await auth.auth_manager_from_config(
         hass, provider_configs, module_configs)
     ensure_auth_manager_loaded(hass.auth)
