@@ -193,22 +193,6 @@ def setup(hass: HomeAssistant, base_config):
             else:
                 _LOGGER.warning("Unknown command %s", cmd)
 
-    def _process_volume(cmd, att):
-        if isinstance(att, (str,)):
-            att = att.strip()
-        if att == CMD_PRESS:
-            hdmi_network.send_command(
-                KeyPressCommand(cmd, dst=ADDR_AUDIOSYSTEM))
-        elif att == CMD_RELEASE:
-            hdmi_network.send_command(KeyReleaseCommand(dst=ADDR_AUDIOSYSTEM))
-        else:
-            att = 1 if att == "" else int(att)
-            for _ in range(0, att):
-                hdmi_network.send_command(
-                    KeyPressCommand(cmd, dst=ADDR_AUDIOSYSTEM))
-                hdmi_network.send_command(
-                    KeyReleaseCommand(dst=ADDR_AUDIOSYSTEM))
-
     def _tx(call):
         """Send CEC command."""
         data = call.data

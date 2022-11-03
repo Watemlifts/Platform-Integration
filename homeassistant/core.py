@@ -1359,22 +1359,6 @@ def _async_create_timer(hass: HomeAssistant) -> None:
         handle = hass.loop.call_later(slp_seconds, fire_time_event, target)
 
     @callback
-    def fire_time_event(target: float) -> None:
-        """Fire next time event."""
-        now = dt_util.utcnow()
-
-        hass.bus.async_fire(EVENT_TIME_CHANGED,
-                            {ATTR_NOW: now})
-
-        # If we are more than a second late, a tick was missed
-        late = monotonic() - target
-        if late > 1:
-            hass.bus.async_fire(EVENT_TIMER_OUT_OF_SYNC,
-                                {ATTR_SECONDS: late})
-
-        schedule_tick(now)
-
-    @callback
     def stop_timer(_: Event) -> None:
         """Stop the timer."""
         if handle is not None:
