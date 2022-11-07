@@ -142,14 +142,12 @@ class AreaRegistry:
     @callback
     def _data_to_save(self) -> dict:
         """Return data of area registry to store in a file."""
-        data = {}
-
-        data['areas'] = [
+        data = {'areas': [
             {
                 'name': entry.name,
                 'id': entry.id,
             } for entry in self.areas.values()
-        ]
+        ]}
 
         return data
 

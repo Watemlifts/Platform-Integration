@@ -35,8 +35,7 @@ async def _async_reproduce_states(hass: HomeAssistantType,
     """Reproduce component states."""
     async def call_service(service: str, keys: Iterable):
         """Call service with set of attributes given."""
-        data = {}
-        data['entity_id'] = state.entity_id
+        data = {'entity_id': state.entity_id}
         for key in keys:
             if key in state.attributes:
                 data[key] = state.attributes[key]

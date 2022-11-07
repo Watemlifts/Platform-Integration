@@ -97,8 +97,7 @@ class TestMqttEventStream:
         # Get the actual call to publish and make sure it was the one
         # we were looking for
         msg = mock_pub.call_args[0][2]
-        event = {}
-        event['event_type'] = EVENT_STATE_CHANGED
+        event = {'event_type': EVENT_STATE_CHANGED}
         new_state = {
             "last_updated": now.isoformat(),
             "state": "on",
@@ -158,8 +157,7 @@ class TestMqttEventStream:
         self.hass.block_till_done()
 
         e_id = 'entity.test_id'
-        event = {}
-        event['event_type'] = EVENT_STATE_CHANGED
+        event = {'event_type': EVENT_STATE_CHANGED}
         new_state = {
             "state": "on",
             "entity_id": e_id,
@@ -185,8 +183,7 @@ class TestMqttEventStream:
         self.hass.block_till_done()
 
         e_id = 'entity.test_id'
-        event = {}
-        event['event_type'] = EVENT_STATE_CHANGED
+        event = {'event_type': EVENT_STATE_CHANGED}
         new_state = {
             "state": "on",
             "entity_id": e_id,

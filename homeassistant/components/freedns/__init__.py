@@ -64,8 +64,7 @@ async def _update_freedns(hass, session, url, auth_token):
         url = UPDATE_URL
 
     if auth_token is not None:
-        params = {}
-        params[auth_token] = ""
+        params = {auth_token: ""}
 
     try:
         with async_timeout.timeout(TIMEOUT):

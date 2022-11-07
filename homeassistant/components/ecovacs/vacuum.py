@@ -177,8 +177,7 @@ class EcovacsVacuum(VacuumDevice):
     @property
     def device_state_attributes(self):
         """Return the device-specific state attributes of this vacuum."""
-        data = {}
-        data[ATTR_ERROR] = self._error
+        data = {ATTR_ERROR: self._error}
 
         for key, val in self.device.components.items():
             attr_name = ATTR_COMPONENT_PREFIX + key

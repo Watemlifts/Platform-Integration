@@ -16,8 +16,7 @@ UPDATE_URL = freedns.UPDATE_URL
 @pytest.fixture
 def setup_freedns(hass, aioclient_mock):
     """Fixture that sets up FreeDNS."""
-    params = {}
-    params[ACCESS_TOKEN] = ""
+    params = {ACCESS_TOKEN: ""}
     aioclient_mock.get(
         UPDATE_URL, params=params, text='Successfully updated 1 domains.')
 
@@ -32,8 +31,7 @@ def setup_freedns(hass, aioclient_mock):
 @asyncio.coroutine
 def test_setup(hass, aioclient_mock):
     """Test setup works if update passes."""
-    params = {}
-    params[ACCESS_TOKEN] = ""
+    params = {ACCESS_TOKEN: ""}
     aioclient_mock.get(
         UPDATE_URL, params=params, text='ERROR: Address has not changed.')
 
@@ -54,8 +52,7 @@ def test_setup(hass, aioclient_mock):
 @asyncio.coroutine
 def test_setup_fails_if_wrong_token(hass, aioclient_mock):
     """Test setup fails if first update fails through wrong token."""
-    params = {}
-    params[ACCESS_TOKEN] = ""
+    params = {ACCESS_TOKEN: ""}
     aioclient_mock.get(
         UPDATE_URL, params=params, text='ERROR: Invalid update URL (2)')
 

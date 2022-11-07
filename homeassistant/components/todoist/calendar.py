@@ -350,32 +350,16 @@ class TodoistProjectData:
 
         Will return 'None' if the task is to be filtered out.
         """
-        task = {}
-        # Fields are required to be in all returned task objects.
-        task[SUMMARY] = data[CONTENT]
-        task[COMPLETED] = data[CHECKED] == 1
-        task[PRIORITY] = data[PRIORITY]
-        task[DESCRIPTION] = 'https://todoist.com/showTask?id={}'.format(
-            data[ID])
-
-        # All task Labels (optional parameter).
-        task[LABELS] = [
+        task = {SUMMARY: data[CONTENT], COMPLETED: data[CHECKED] == 1, PRIORITY: data[PRIORITY], DESCRIPTION: 'https://todoist.com/showTask?id={}'.format(
+            data[ID]), LABELS: [
             label[NAME].lower() for label in self._labels
-            if label[ID] in data[LABELS]]
+            if label[ID] in data[LABELS]], START: dt.utcnow()}
 
         if self._label_whitelist and (
                 not any(label in task[LABELS]
                         for label in self._label_whitelist)):
             # We're not on the whitelist, return invalid task.
             return None
-
-        # Due dates (optional parameter).
-        # The due date is the END date -- the task cannot be completed
-        # past this time.
-        # That means that the START date is the earliest time one can
-        # complete the task.
-        # Generally speaking, that means right now.
-        task[START] = dt.utcnow()
         if data[DUE_DATE_UTC] is not None:
             due_date = data[DUE_DATE_UTC]
 

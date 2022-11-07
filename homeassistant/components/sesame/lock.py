@@ -86,8 +86,5 @@ class SesameDevice(LockDevice):
     @property
     def device_state_attributes(self) -> dict:
         """Return the state attributes."""
-        attributes = {}
-        attributes[ATTR_DEVICE_ID] = self._device_id
-        attributes[ATTR_SERIAL_NO] = self._serial
-        attributes[ATTR_BATTERY_LEVEL] = self._battery
+        attributes = {ATTR_DEVICE_ID: self._device_id, ATTR_SERIAL_NO: self._serial, ATTR_BATTERY_LEVEL: self._battery}
         return attributes

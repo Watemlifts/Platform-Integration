@@ -119,10 +119,7 @@ class AirSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return other details about the sensor state."""
-        attrs = {}
-        attrs['updated'] = self._updated
-        attrs['sites'] = len(self._site_data)
-        attrs['data'] = self._site_data
+        attrs = {'updated': self._updated, 'sites': len(self._site_data), 'data': self._site_data}
         return attrs
 
     def update(self):
@@ -146,13 +143,8 @@ def parse_species(species_data):
     quality_list = []
     for species in species_data:
         if species['@AirQualityBand'] != 'No data':
-            species_dict = {}
-            species_dict['description'] = species['@SpeciesDescription']
-            species_dict['code'] = species['@SpeciesCode']
-            species_dict['quality'] = species['@AirQualityBand']
-            species_dict['index'] = species['@AirQualityIndex']
-            species_dict['summary'] = (species_dict['code'] + ' is '
-                                       + species_dict['quality'])
+            species_dict = {'description': species['@SpeciesDescription'], 'code': species['@SpeciesCode'], 'quality': species['@AirQualityBand'], 'index': species['@AirQualityIndex'], 'summary': (species_dict['code'] + ' is '
+                                       + species_dict['quality'])}
             parsed_species_data.append(species_dict)
             quality_list.append(species_dict['quality'])
     return parsed_species_data, quality_list

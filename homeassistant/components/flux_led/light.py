@@ -122,12 +122,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     light_ips = []
 
     for ipaddr, device_config in config.get(CONF_DEVICES, {}).items():
-        device = {}
-        device['name'] = device_config[CONF_NAME]
-        device['ipaddr'] = ipaddr
-        device[CONF_PROTOCOL] = device_config.get(CONF_PROTOCOL)
-        device[ATTR_MODE] = device_config[ATTR_MODE]
-        device[CONF_CUSTOM_EFFECT] = device_config.get(CONF_CUSTOM_EFFECT)
+        device = {'name': device_config[CONF_NAME], 'ipaddr': ipaddr, CONF_PROTOCOL: device_config.get(CONF_PROTOCOL), ATTR_MODE: device_config[ATTR_MODE], CONF_CUSTOM_EFFECT: device_config.get(CONF_CUSTOM_EFFECT)}
         light = FluxLight(device)
         lights.append(light)
         light_ips.append(ipaddr)

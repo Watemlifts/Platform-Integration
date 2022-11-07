@@ -327,10 +327,8 @@ class HoneywellUSThermostat(ClimateDevice):
         data = {
             ATTR_FAN: (self.is_fan_on and 'running' or 'idle'),
             ATTR_FAN_MODE: self._device.fan_mode,
-            ATTR_OPERATION_MODE: self._device.system_mode,
+            ATTR_OPERATION_MODE: self._device.system_mode,ATTR_FAN_LIST: somecomfort.FAN_MODES, ATTR_OPERATION_LIST: somecomfort.SYSTEM_MODES
         }
-        data[ATTR_FAN_LIST] = somecomfort.FAN_MODES
-        data[ATTR_OPERATION_LIST] = somecomfort.SYSTEM_MODES
         return data
 
     @property

@@ -98,9 +98,7 @@ class EightHeatSensor(EightSleepHeatEntity):
     @property
     def device_state_attributes(self):
         """Return device state attributes."""
-        state_attr = {ATTR_TARGET_HEAT: self._usrobj.target_heating_level}
-        state_attr[ATTR_ACTIVE_HEAT] = self._usrobj.now_heating
-        state_attr[ATTR_DURATION_HEAT] = self._usrobj.heating_remaining
+        state_attr = {ATTR_TARGET_HEAT: self._usrobj.target_heating_level, ATTR_ACTIVE_HEAT: self._usrobj.now_heating, ATTR_DURATION_HEAT: self._usrobj.heating_remaining}
 
         return state_attr
 
@@ -182,9 +180,7 @@ class EightUserSensor(EightSleepUserEntity):
             # Skip attributes if sensor type doesn't support
             return None
 
-        state_attr = {ATTR_SESSION_START: self._attr['date']}
-        state_attr[ATTR_TNT] = self._attr['tnt']
-        state_attr[ATTR_PROCESSING] = self._attr['processing']
+        state_attr = {ATTR_SESSION_START: self._attr['date'], ATTR_TNT: self._attr['tnt'], ATTR_PROCESSING: self._attr['processing']}
 
         sleep_time = sum(self._attr['breakdown'].values()) - \
             self._attr['breakdown']['awake']

@@ -193,14 +193,8 @@ class IPMAWeather(WeatherEntity):
         if self._forecast:
             fcdata_out = []
             for data_in in self._forecast:
-                data_out = {}
-                data_out[ATTR_FORECAST_TIME] = data_in.forecastDate
-                data_out[ATTR_FORECAST_CONDITION] =\
-                    next((k for k, v in CONDITION_CLASSES.items()
-                          if int(data_in.idWeatherType) in v), None)
-                data_out[ATTR_FORECAST_TEMP_LOW] = data_in.tMin
-                data_out[ATTR_FORECAST_TEMP] = data_in.tMax
-                data_out[ATTR_FORECAST_PRECIPITATION] = data_in.precipitaProb
+                data_out = {ATTR_FORECAST_TIME: data_in.forecastDate, ATTR_FORECAST_CONDITION: next((k for k, v in CONDITION_CLASSES.items()
+                          if int(data_in.idWeatherType) in v), None), ATTR_FORECAST_TEMP_LOW: data_in.tMin, ATTR_FORECAST_TEMP: data_in.tMax, ATTR_FORECAST_PRECIPITATION: data_in.precipitaProb}
 
                 fcdata_out.append(data_out)
 

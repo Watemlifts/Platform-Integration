@@ -35,13 +35,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the light platform for each FutureNow unit."""
     lights = []
     for channel, device_config in config[CONF_DEVICES].items():
-        device = {}
-        device['name'] = device_config[CONF_NAME]
-        device['dimmable'] = device_config['dimmable']
-        device['channel'] = channel
-        device['driver'] = config[CONF_DRIVER]
-        device['host'] = config[CONF_HOST]
-        device['port'] = config[CONF_PORT]
+        device = {'name': device_config[CONF_NAME], 'dimmable': device_config['dimmable'], 'channel': channel, 'driver': config[CONF_DRIVER], 'host': config[CONF_HOST], 'port': config[CONF_PORT]}
         lights.append(FutureNowLight(device))
 
     add_entities(lights, True)

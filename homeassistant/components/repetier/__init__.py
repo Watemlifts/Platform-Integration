@@ -219,11 +219,7 @@ class PrinterAPI:
         sensor_info = []
         for pidx, printer in enumerate(self.printers):
             for sensor_type in self.sensors:
-                info = {}
-                info['sensor_type'] = sensor_type
-                info['printer_id'] = pidx
-                info['name'] = printer.slug
-                info['printer_name'] = self.conf_name
+                info = {'sensor_type': sensor_type, 'printer_id': pidx, 'name': printer.slug, 'printer_name': self.conf_name}
 
                 known = '{}-{}'.format(printer.slug, sensor_type)
                 if known in self._known_entities:
