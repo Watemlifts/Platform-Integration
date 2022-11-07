@@ -71,7 +71,6 @@ async def test_async_create_catching_coro(hass, caplog):
     """Test exception logging of wrapped coroutine."""
     async def job():
         raise Exception('This is a bad coroutine')
-        pass
 
     hass.async_create_task(logging_util.async_create_catching_coro(job()))
     await hass.async_block_till_done()
