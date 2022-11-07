@@ -14,11 +14,10 @@ from .const import DOMAIN
 @callback
 def configured_instances(hass):
     """Return a set of configured OpenUV instances."""
-    return set(
-        '{0}, {1}'.format(
+    return {'{0}, {1}'.format(
             entry.data.get(CONF_LATITUDE, hass.config.latitude),
             entry.data.get(CONF_LONGITUDE, hass.config.longitude))
-        for entry in hass.config_entries.async_entries(DOMAIN))
+        for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
 @config_entries.HANDLERS.register(DOMAIN)

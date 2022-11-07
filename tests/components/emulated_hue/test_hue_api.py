@@ -200,7 +200,7 @@ def test_discover_lights(hue_client):
 
     result_json = yield from result.json()
 
-    devices = set(val['uniqueid'] for val in result_json.values())
+    devices = {val['uniqueid'] for val in result_json.values()}
 
     # Make sure the lights we added to the config are there
     assert 'light.ceiling_lights' in devices

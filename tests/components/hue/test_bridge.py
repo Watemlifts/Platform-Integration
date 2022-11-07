@@ -21,11 +21,9 @@ async def test_bridge_setup():
         assert await hue_bridge.async_setup() is True
 
     assert hue_bridge.api is api
-    forward_entries = set(
-        c[1][1]
+    forward_entries = {c[1][1]
         for c in
-        hass.config_entries.async_forward_entry_setup.mock_calls
-        )
+        hass.config_entries.async_forward_entry_setup.mock_calls}
     assert len(hass.config_entries.async_forward_entry_setup.mock_calls) == 3
     assert forward_entries == set(['light', 'binary_sensor', 'sensor'])
 

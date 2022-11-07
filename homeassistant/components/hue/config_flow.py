@@ -21,8 +21,8 @@ HUE_MANUFACTURERURL = 'http://www.philips.com'
 @callback
 def configured_hosts(hass):
     """Return a set of the configured hosts."""
-    return set(entry.data['host'] for entry
-               in hass.config_entries.async_entries(DOMAIN))
+    return {entry.data['host'] for entry
+               in hass.config_entries.async_entries(DOMAIN)}
 
 
 def _find_username_from_config(hass, filename):
