@@ -237,7 +237,7 @@ class DenonDevice(MediaPlayerDevice):
     @property
     def media_content_type(self):
         """Content type of current playing media."""
-        if self._state == STATE_PLAYING or self._state == STATE_PAUSED:
+        if self._state in (STATE_PLAYING, STATE_PAUSED):
             return MEDIA_TYPE_MUSIC
         return MEDIA_TYPE_CHANNEL
 
