@@ -232,7 +232,7 @@ class PhilipsTV(MediaPlayerDevice):
     @property
     def media_content_type(self):
         """Return content type of playing media."""
-        if (self._tv.source_id == 'tv' or self._tv.source_id == '11'):
+        if self._tv.source_id in ('tv', '11'):
             return MEDIA_TYPE_CHANNEL
         if (self._tv.source_id is None and self._tv.channels):
             return MEDIA_TYPE_CHANNEL

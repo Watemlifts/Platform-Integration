@@ -272,7 +272,7 @@ class MockDirectvClass:
             self._play = False
         elif keypress == 'play':
             self._play = True
-        elif keypress == 'pause' or keypress == 'stop':
+        elif keypress in ('pause', 'stop'):
             self._play = False
 
     def tune_channel(self, source):

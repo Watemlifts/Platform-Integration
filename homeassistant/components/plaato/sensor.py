@@ -126,7 +126,7 @@ class PlaatoSensor(Entity):
         """Return the unit of measurement."""
         if self._type == ATTR_TEMP:
             return self.get_sensors_unit_of_measurement(ATTR_TEMP_UNIT)
-        if self._type == ATTR_BATCH_VOLUME or self._type == ATTR_CO2_VOLUME:
+        if self._type in (ATTR_BATCH_VOLUME, ATTR_CO2_VOLUME):
             return self.get_sensors_unit_of_measurement(ATTR_VOLUME_UNIT)
         if self._type == ATTR_BPM:
             return 'bpm'

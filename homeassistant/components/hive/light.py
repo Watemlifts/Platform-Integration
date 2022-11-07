@@ -70,22 +70,19 @@ class HiveDeviceLight(Light):
     @property
     def min_mireds(self):
         """Return the coldest color_temp that this light supports."""
-        if self.light_device_type == "tuneablelight" \
-                or self.light_device_type == "colourtuneablelight":
+        if self.light_device_type in ("tuneablelight", "colourtuneablelight"):
             return self.session.light.get_min_color_temp(self.node_id)
 
     @property
     def max_mireds(self):
         """Return the warmest color_temp that this light supports."""
-        if self.light_device_type == "tuneablelight" \
-                or self.light_device_type == "colourtuneablelight":
+        if self.light_device_type in ("tuneablelight", "colourtuneablelight"):
             return self.session.light.get_max_color_temp(self.node_id)
 
     @property
     def color_temp(self):
         """Return the CT color value in mireds."""
-        if self.light_device_type == "tuneablelight" \
-                or self.light_device_type == "colourtuneablelight":
+        if self.light_device_type in ("tuneablelight", "colourtuneablelight"):
             return self.session.light.get_color_temp(self.node_id)
 
     @property

@@ -157,21 +157,20 @@ class SystemMonitorSensor(Entity):
                         "Failed to load process with id: %s, old name: %s",
                         err.pid, err.name)
             self._state = STATE_OFF
-        elif self.type == 'network_out' or self.type == 'network_in':
+        elif self.type in ('network_out', 'network_in'):
             counters = psutil.net_io_counters(pernic=True)
             if self.argument in counters:
                 counter = counters[self.argument][IO_COUNTER[self.type]]
                 self._state = round(counter / 1024**2, 1)
             else:
                 self._state = None
-        elif self.type == 'packets_out' or self.type == 'packets_in':
+        elif self.type in ('packets_out', 'packets_in'):
             counters = psutil.net_io_counters(pernic=True)
             if self.argument in counters:
                 self._state = counters[self.argument][IO_COUNTER[self.type]]
             else:
                 self._state = None
-        elif self.type == 'throughput_network_out' or\
-                self.type == 'throughput_network_in':
+        elif self.type in ('throughput_network_out', 'throughput_network_in'):
             counters = psutil.net_io_counters(pernic=True)
             if self.argument in counters:
                 counter = counters[self.argument][IO_COUNTER[self.type]]
@@ -186,7 +185,7 @@ class SystemMonitorSensor(Entity):
                 self._last_value = counter
             else:
                 self._state = None
-        elif self.type == 'ipv4_address' or self.type == 'ipv6_address':
+        elif self.type in ('ipv4_address', 'ipv6_address'):
             addresses = psutil.net_if_addrs()
             if self.argument in addresses:
                 for addr in addresses[self.argument]:

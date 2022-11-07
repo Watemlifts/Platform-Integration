@@ -50,8 +50,7 @@ class ElkThermostat(ElkEntity, ClimateDevice):
     def target_temperature(self):
         """Return the temperature we are trying to reach."""
         from elkm1_lib.const import ThermostatMode
-        if (self._element.mode == ThermostatMode.HEAT.value) or (
-                self._element.mode == ThermostatMode.EMERGENCY_HEAT.value):
+        if self._element.mode in (ThermostatMode.HEAT.value, ThermostatMode.EMERGENCY_HEAT.value):
             return self._element.heat_setpoint
         if self._element.mode == ThermostatMode.COOL.value:
             return self._element.cool_setpoint
