@@ -78,8 +78,6 @@ class CiscoDeviceScanner(DeviceScanner):
                 if len(parts) != 6:
                     continue
 
-                # ['Internet', '10.10.11.1', '-', '0027.d32d.0123', 'ARPA',
-                # 'GigabitEthernet0']
                 age = parts[2]
                 hw_addr = parts[3]
 

@@ -131,7 +131,6 @@ class TestSensorMoldIndicator(unittest.TestCase):
         moldind = self.hass.states.get('sensor.mold_indicator')
         assert moldind
 
-        # assert dewpoint
         dewpoint = moldind.attributes.get(ATTR_DEWPOINT)
         assert dewpoint
         assert dewpoint > 9.25

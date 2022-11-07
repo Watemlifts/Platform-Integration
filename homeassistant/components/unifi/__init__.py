@@ -39,7 +39,6 @@ async def async_setup_entry(hass, config_entry):
         manufacturer='Ubiquiti',
         model="UniFi Controller",
         name="UniFi Controller",
-        # sw_version=config.raw['swversion'],
     )
 
     return True

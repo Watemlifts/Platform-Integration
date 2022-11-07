@@ -95,7 +95,6 @@ BINARY_SENSOR_INFO = {
 }
 
 SENSOR_INFO = {
-    # [device_class, unit, friendly_name]
     gw_vars.DATA_CONTROL_SETPOINT: [
         DEVICE_CLASS_TEMPERATURE, TEMP_CELSIUS, "Control Setpoint {}"],
     gw_vars.DATA_MASTER_MEMBERID: [None, None, "Thermostat Member ID {}"],

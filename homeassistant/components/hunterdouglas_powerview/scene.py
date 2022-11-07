@@ -32,7 +32,6 @@ STATE_ATTRIBUTE_ROOM_NAME = 'roomName'
 async def async_setup_platform(hass, config, async_add_entities,
                                discovery_info=None):
     """Set up home assistant scene entries."""
-    # from aiopvapi.hub import Hub
     from aiopvapi.helpers.aiorequest import AioRequest
     from aiopvapi.scenes import Scenes
     from aiopvapi.rooms import Rooms

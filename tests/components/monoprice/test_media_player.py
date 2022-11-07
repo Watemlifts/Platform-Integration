@@ -204,7 +204,6 @@ class TestMonopriceMediaPlayer(unittest.TestCase):
         self.hass.services.call(DOMAIN, SERVICE_SNAPSHOT,
                                 {'entity_id': 'media_player.zone_1'},
                                 blocking=True)
-        # self.hass.block_till_done()
 
         # Changing media player to new state
         self.media_player.set_volume_level(1)
@@ -225,7 +224,6 @@ class TestMonopriceMediaPlayer(unittest.TestCase):
         self.hass.services.call(DOMAIN, SERVICE_RESTORE,
                                 {'entity_id': 'media.not_existing'},
                                 blocking=True)
-        # self.hass.block_till_done()
 
         # Checking that values were not (!) restored
         self.media_player.update()
