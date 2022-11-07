@@ -59,7 +59,7 @@ class CecSwitchDevice(CecDevice, SwitchDevice):
     @property
     def is_standby(self):
         """Return true if device is in standby."""
-        return self._state == STATE_OFF or self._state == STATE_STANDBY
+        return self._state in (STATE_OFF, STATE_STANDBY)
 
     @property
     def state(self) -> str:
