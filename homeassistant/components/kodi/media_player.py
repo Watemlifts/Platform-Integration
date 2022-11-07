@@ -955,8 +955,8 @@ class KodiDevice(MediaPlayerDevice):
             '(^| )' + k + '( |$)', re.IGNORECASE) for k in key_word]
 
         out = [[i, 0] for i in range(len(words))]
-        for i in range(len(words)):
-            mtc = [p.search(words[i]) for p in patt]
+        for i, item in enumerate(words):
+            mtc = [p.search(item) for p in patt]
             rate = [m is not None for m in mtc].count(True)
             out[i][1] = rate
 
