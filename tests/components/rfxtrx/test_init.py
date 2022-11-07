@@ -6,7 +6,7 @@ import pytest
 
 from homeassistant.core import callback
 from homeassistant.setup import setup_component
-from homeassistant.components import rfxtrx as rfxtrx
+from homeassistant.components import rfxtrx
 from tests.common import get_test_home_assistant
 
 
