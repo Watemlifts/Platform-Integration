@@ -88,7 +88,7 @@ async def test_purecool_aiq_update_state(devices, login, hass):
 
     for call in device.add_message_listener.call_args_list:
         callback = call[0][0]
-        if type(callback.__self__) == dyson.DysonAirSensor:
+        if type(callback.__self__) is dyson.DysonAirSensor:
             callback(device.environmental_state)
 
     await hass.async_block_till_done()

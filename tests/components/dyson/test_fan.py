@@ -682,7 +682,7 @@ async def test_purecool_update_state(devices, login, hass):
 
     for call in device.add_message_listener.call_args_list:
         callback = call[0][0]
-        if type(callback.__self__) == dyson.DysonPureCoolDevice:
+        if type(callback.__self__) is dyson.DysonPureCoolDevice:
             callback(device.state)
 
     await hass.async_block_till_done()
