@@ -476,7 +476,7 @@ class MockModule:
 
         if setup is not None:
             # We run this in executor, wrap it in function
-            self.setup = lambda *args: setup(*args)
+            self.setup = setup
 
         if async_setup is not None:
             self.async_setup = async_setup
@@ -525,7 +525,7 @@ class MockPlatform:
 
         if setup_platform is not None:
             # We run this in executor, wrap it in function
-            self.setup_platform = lambda *args: setup_platform(*args)
+            self.setup_platform = setup_platform
 
         if async_setup_platform is not None:
             self.async_setup_platform = async_setup_platform

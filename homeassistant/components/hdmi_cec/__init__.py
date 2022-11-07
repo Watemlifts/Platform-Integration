@@ -102,7 +102,7 @@ SERVICE_STANDBY = 'standby'
 # pylint: disable=unnecessary-lambda
 DEVICE_SCHEMA = vol.Schema({
     vol.All(cv.positive_int):
-        vol.Any(lambda devices: DEVICE_SCHEMA(devices), cv.string)
+        vol.Any(DEVICE_SCHEMA, cv.string)
 })
 
 CONF_DISPLAY_NAME = 'osd_name'

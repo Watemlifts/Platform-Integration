@@ -30,7 +30,7 @@ def events(hass):
     events = []
     hass.bus.async_listen(
         smart_home.EVENT_ALEXA_SMART_HOME,
-        callback(lambda e: events.append(e))
+        callback(events.append)
     )
     yield events
 
