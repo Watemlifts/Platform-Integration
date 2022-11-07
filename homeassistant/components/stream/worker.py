@@ -13,8 +13,6 @@ def generate_audio_frame():
     """Generate a blank audio frame."""
     from av import AudioFrame
     audio_frame = AudioFrame(format='dbl', layout='mono', samples=1024)
-    # audio_bytes = b''.join(b'\x00\x00\x00\x00\x00\x00\x00\x00'
-    #                        for i in range(0, 1024))
     audio_bytes = b'\x00\x00\x00\x00\x00\x00\x00\x00' * 1024
     audio_frame.planes[0].update(audio_bytes)
     audio_frame.sample_rate = AUDIO_SAMPLE_RATE

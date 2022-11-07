@@ -33,11 +33,6 @@ def validate_integration(integration: Integration):
     #         "to be imported without installing requirements.".format(err))
     #     return
 
-    # if integration.domain not in config_entries.HANDLERS:
-    #     integration.add_error(
-    #         'config_flow',
-    #         "Importing the config flow platform did not register a config "
-    #         "flow handler.")
 
 
 def generate_and_validate(integrations: Dict[str, Integration]):

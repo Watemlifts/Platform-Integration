@@ -249,8 +249,6 @@ class DeviceRegistry:
                     name=device['name'],
                     sw_version=device['sw_version'],
                     id=device['id'],
-                    # Introduced in 0.79
-                    # renamed in 0.95
                     via_device_id=(
                         device.get('via_device_id')
                         or device.get('hub_device_id')),

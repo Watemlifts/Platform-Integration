@@ -39,7 +39,6 @@ async def test_create_auth_system_generated_user(hass, hass_access_token,
 
 async def test_create_auth_user_already_credentials():
     """Test we can't create auth for user with pre-existing credentials."""
-    # assert False
 
 
 async def test_create_auth_unknown_user(hass_ws_client, hass,

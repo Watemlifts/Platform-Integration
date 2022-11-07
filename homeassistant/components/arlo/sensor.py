@@ -17,7 +17,6 @@ from . import ATTRIBUTION, DATA_ARLO, DEFAULT_BRAND, SIGNAL_UPDATE_ARLO
 
 _LOGGER = logging.getLogger(__name__)
 
-# sensor_type [ description, unit, icon ]
 SENSOR_TYPES = {
     'last_capture': ['Last', None, 'run-fast'],
     'total_cameras': ['Arlo Cameras', None, 'video'],

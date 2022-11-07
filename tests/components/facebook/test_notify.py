@@ -2,7 +2,6 @@
 import unittest
 import requests_mock
 
-# import homeassistant.components.facebook as facebook
 import homeassistant.components.facebook.notify as facebook
 
 

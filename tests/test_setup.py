@@ -177,7 +177,6 @@ class TestSetup:
 
         with assert_setup_component(1):
             assert setup.setup_component(self.hass, 'platform_conf', {
-                # pass
                 'platform_conf': {
                     'platform': 'whatever',
                     'hello': 'world',
@@ -211,7 +210,6 @@ class TestSetup:
 
         with assert_setup_component(1):
             assert setup.setup_component(self.hass, 'platform_conf', {
-                # pass
                 'platform_conf': {
                     'platform': 'whatever',
                     'hello': 'world',

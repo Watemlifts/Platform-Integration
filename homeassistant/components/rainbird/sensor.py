@@ -12,7 +12,6 @@ from . import DATA_RAINBIRD
 
 _LOGGER = logging.getLogger(__name__)
 
-# sensor_type [ description, unit, icon ]
 SENSOR_TYPES = {
     'rainsensor': ['Rainsensor', None, 'mdi:water']
 }

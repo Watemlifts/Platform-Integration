@@ -22,7 +22,6 @@ DEFAULT_BRANCH_NAME = 'master'
 
 SCAN_INTERVAL = timedelta(seconds=30)
 
-# sensor_type [ description, unit, icon ]
 SENSOR_TYPES = {
     'last_build_id': ['Last Build ID', '', 'mdi:account-card-details'],
     'last_build_duration': ['Last Build Duration', 'sec', 'mdi:timelapse'],

@@ -366,7 +366,6 @@ async def test_if_action(hass, calls):
     await hass.async_block_till_done()
     assert 0 == len(calls)
 
-    # Condition is true and event is triggered
     hass.bus.async_fire('test_event')
     await hass.async_block_till_done()
     assert 1 == len(calls)

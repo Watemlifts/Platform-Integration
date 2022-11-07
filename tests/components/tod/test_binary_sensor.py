@@ -306,7 +306,6 @@ class TestBinarySensorTod(unittest.TestCase):
             self.hass, 'sunset', test_time))
         sunrise = dt_util.as_local(get_astral_event_next(
             self.hass, 'sunrise', sunset))
-        # assert sunset == sunrise
         config = {
             'binary_sensor': [
                 {
@@ -370,7 +369,6 @@ class TestBinarySensorTod(unittest.TestCase):
 
             state = self.hass.states.get(entity_id)
             self.hass.block_till_done()
-            # assert state == "dupa"
             assert state.state == STATE_OFF
 
         testtime = sunrise + timedelta(minutes=1)

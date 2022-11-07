@@ -182,7 +182,6 @@ async def test_thermostat_auto(hass, hk_driver, cls, events):
     """Test if accessory and HA are updated accordingly."""
     entity_id = 'climate.test'
 
-    # support_auto = True
     hass.states.async_set(entity_id, STATE_OFF, {ATTR_SUPPORTED_FEATURES: 6})
     await hass.async_block_till_done()
     acc = cls.thermostat(hass, hk_driver, 'Climate', entity_id, 2, None)
@@ -271,7 +270,6 @@ async def test_thermostat_power_state(hass, hk_driver, cls, events):
     """Test if accessory and HA are updated accordingly."""
     entity_id = 'climate.test'
 
-    # SUPPORT_ON_OFF = True
     hass.states.async_set(entity_id, STATE_HEAT,
                           {ATTR_SUPPORTED_FEATURES: 4096,
                            ATTR_OPERATION_MODE: STATE_HEAT,
@@ -332,7 +330,6 @@ async def test_thermostat_fahrenheit(hass, hk_driver, cls, events):
     """Test if accessory and HA are updated accordingly."""
     entity_id = 'climate.test'
 
-    # support_auto = True
     hass.states.async_set(entity_id, STATE_OFF, {ATTR_SUPPORTED_FEATURES: 6})
     await hass.async_block_till_done()
     with patch.object(hass.config.units, CONF_TEMPERATURE_UNIT,

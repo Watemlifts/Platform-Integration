@@ -40,7 +40,6 @@ class TestGeoRssServiceUpdater(unittest.TestCase):
     def setUp(self):
         """Initialize values for this testcase class."""
         self.hass = get_test_home_assistant()
-        # self.config = VALID_CONFIG_WITHOUT_CATEGORIES
 
     def tearDown(self):
         """Stop everything that was started."""
