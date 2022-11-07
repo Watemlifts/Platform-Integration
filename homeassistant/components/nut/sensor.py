@@ -222,7 +222,7 @@ class NUTSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the sensor attributes."""
-        attr = dict()
+        attr = {}
         attr[ATTR_STATE] = self.display_state()
         return attr
 

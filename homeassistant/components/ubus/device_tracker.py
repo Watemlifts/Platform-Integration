@@ -91,7 +91,7 @@ class UbusDeviceScanner(DeviceScanner):
 
     def _generate_mac2name(self):
         """Return empty MAC to name dict. Overridden if DHCP server is set."""
-        self.mac2name = dict()
+        self.mac2name = {}
 
     @_refresh_on_access_denied
     def get_device_name(self, device):
@@ -161,7 +161,7 @@ class DnsmasqUbusDeviceScanner(UbusDeviceScanner):
             self.url, self.session_id, 'call', 'file', 'read',
             path=self.leasefile)
         if result:
-            self.mac2name = dict()
+            self.mac2name = {}
             for line in result["data"].splitlines():
                 hosts = line.split(" ")
                 self.mac2name[hosts[1].upper()] = hosts[3]
@@ -177,7 +177,7 @@ class OdhcpdUbusDeviceScanner(UbusDeviceScanner):
         result = _req_json_rpc(
             self.url, self.session_id, 'call', 'dhcp', 'ipv4leases')
         if result:
-            self.mac2name = dict()
+            self.mac2name = {}
             for device in result["device"].values():
                 for lease in device['leases']:
                     mac = lease['mac']  # mac = aabbccddeeff

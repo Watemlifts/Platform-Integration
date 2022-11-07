@@ -209,7 +209,7 @@ class IPMAWeather(WeatherEntity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        data = dict()
+        data = {}
 
         if self._description:
             data[ATTR_WEATHER_DESCRIPTION] = self._description

@@ -19,7 +19,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Ecobee weather platform."""
     if discovery_info is None:
         return
-    dev = list()
+    dev = []
     data = ecobee.NETWORK
     for index in range(len(data.ecobee.thermostats)):
         thermostat = data.ecobee.get_thermostat(index)

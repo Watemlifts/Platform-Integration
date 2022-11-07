@@ -155,7 +155,7 @@ async def async_setup_platform(hass, config, async_add_entities,
                                discovery_info=None):
     """Set up the Kodi platform."""
     if DATA_KODI not in hass.data:
-        hass.data[DATA_KODI] = dict()
+        hass.data[DATA_KODI] = {}
 
     unique_id = None
     # Is this a manual configuration?
@@ -340,7 +340,7 @@ class KodiDevice(MediaPlayerDevice):
         self._turn_on_action = turn_on_action
         self._turn_off_action = turn_off_action
         self._enable_websocket = websocket
-        self._players = list()
+        self._players = []
         self._properties = {}
         self._item = {}
         self._app_properties = {}

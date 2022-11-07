@@ -39,7 +39,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Nanoleaf light."""
     from pynanoleaf import Nanoleaf, Unavailable
     if DATA_NANOLEAF not in hass.data:
-        hass.data[DATA_NANOLEAF] = dict()
+        hass.data[DATA_NANOLEAF] = {}
 
     token = ''
     if discovery_info is not None:

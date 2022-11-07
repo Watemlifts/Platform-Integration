@@ -160,7 +160,7 @@ def async_setup_scanner_platform(hass: HomeAssistantType, config: ConfigType,
                 extra_attributes = \
                     await scanner.async_get_extra_attributes(mac)
             except NotImplementedError:
-                extra_attributes = dict()
+                extra_attributes = {}
 
             kwargs = {
                 'mac': mac,
