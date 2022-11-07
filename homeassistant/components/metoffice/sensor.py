@@ -154,12 +154,7 @@ class MetOfficeCurrentSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes of the device."""
-        attr = {}
-        attr[ATTR_ATTRIBUTION] = ATTRIBUTION
-        attr[ATTR_LAST_UPDATE] = self.data.data.date
-        attr[ATTR_SENSOR_ID] = self._condition
-        attr[ATTR_SITE_ID] = self.site.id
-        attr[ATTR_SITE_NAME] = self.site.name
+        attr = {ATTR_ATTRIBUTION: ATTRIBUTION, ATTR_LAST_UPDATE: self.data.data.date, ATTR_SENSOR_ID: self._condition, ATTR_SITE_ID: self.site.id, ATTR_SITE_NAME: self.site.name}
         return attr
 
     def update(self):

@@ -139,14 +139,10 @@ class PublicTransportData:
 
     def update(self):
         """Get the latest data from opendata.ch."""
-        params = {}
-        params['stopid'] = self.stop
+        params = {'stopid': self.stop, 'maxresults': 2, 'format': 'json'}
 
         if self.route:
             params['routeid'] = self.route
-
-        params['maxresults'] = 2
-        params['format'] = 'json'
 
         response = requests.get(_RESOURCE, params, timeout=10)
 

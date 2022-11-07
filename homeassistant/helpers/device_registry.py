@@ -267,9 +267,7 @@ class DeviceRegistry:
     @callback
     def _data_to_save(self):
         """Return data of device registry to store in a file."""
-        data = {}
-
-        data['devices'] = [
+        data = {'devices': [
             {
                 'config_entries': list(entry.config_entries),
                 'connections': list(entry.connections),
@@ -283,7 +281,7 @@ class DeviceRegistry:
                 'area_id': entry.area_id,
                 'name_by_user': entry.name_by_user
             } for entry in self.devices.values()
-        ]
+        ]}
 
         return data
 

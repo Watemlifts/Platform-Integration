@@ -152,8 +152,7 @@ class ScriptEntity(ToggleEntity):
     @property
     def state_attributes(self):
         """Return the state attributes."""
-        attrs = {}
-        attrs[ATTR_LAST_TRIGGERED] = self.script.last_triggered
+        attrs = {ATTR_LAST_TRIGGERED: self.script.last_triggered}
         if self.script.can_cancel:
             attrs[ATTR_CAN_CANCEL] = self.script.can_cancel
         if self.script.last_action:

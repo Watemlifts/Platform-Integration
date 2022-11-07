@@ -80,8 +80,7 @@ class ZhaDeviceStorage:
         ieee_str = str(device.ieee)
         old = self.devices[ieee_str]
 
-        changes = {}
-        changes['last_seen'] = device.last_seen
+        changes = {'last_seen': device.last_seen}
 
         new = self.devices[ieee_str] = attr.evolve(old, **changes)
         self.async_schedule_save()
@@ -116,15 +115,13 @@ class ZhaDeviceStorage:
     @callback
     def _data_to_save(self) -> dict:
         """Return data for the registry of zha devices to store in a file."""
-        data = {}
-
-        data['devices'] = [
+        data = {'devices': [
             {
                 'name': entry.name,
                 'ieee': entry.ieee,
                 'last_seen': entry.last_seen
             } for entry in self.devices.values()
-        ]
+        ]}
 
         return data
 

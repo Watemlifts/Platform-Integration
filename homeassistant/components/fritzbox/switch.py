@@ -75,9 +75,7 @@ class FritzboxSwitch(SwitchDevice):
     @property
     def device_state_attributes(self):
         """Return the state attributes of the device."""
-        attrs = {}
-        attrs[ATTR_STATE_DEVICE_LOCKED] = self._device.device_lock
-        attrs[ATTR_STATE_LOCKED] = self._device.lock
+        attrs = {ATTR_STATE_DEVICE_LOCKED: self._device.device_lock, ATTR_STATE_LOCKED: self._device.lock}
 
         if self._device.has_powermeter:
             attrs[ATTR_TOTAL_CONSUMPTION] = "{:.3f}".format(

@@ -28,10 +28,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Tikteck platform."""
     lights = []
     for address, device_config in config[CONF_DEVICES].items():
-        device = {}
-        device['name'] = device_config[CONF_NAME]
-        device['password'] = device_config[CONF_PASSWORD]
-        device['address'] = address
+        device = {'name': device_config[CONF_NAME], 'password': device_config[CONF_PASSWORD], 'address': address}
         light = TikteckLight(device)
         if light.is_valid:
             lights.append(light)

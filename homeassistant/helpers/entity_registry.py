@@ -277,9 +277,7 @@ class EntityRegistry:
     @callback
     def _data_to_save(self):
         """Return data of entity registry to store in a file."""
-        data = {}
-
-        data['entities'] = [
+        data = {'entities': [
             {
                 'entity_id': entry.entity_id,
                 'config_entry_id': entry.config_entry_id,
@@ -289,7 +287,7 @@ class EntityRegistry:
                 'name': entry.name,
                 'disabled_by': entry.disabled_by,
             } for entry in self.entities.values()
-        ]
+        ]}
 
         return data
 

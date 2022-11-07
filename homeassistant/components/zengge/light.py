@@ -27,9 +27,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Zengge platform."""
     lights = []
     for address, device_config in config[CONF_DEVICES].items():
-        device = {}
-        device['name'] = device_config[CONF_NAME]
-        device['address'] = address
+        device = {'name': device_config[CONF_NAME], 'address': address}
         light = ZenggeLight(device)
         if light.is_valid:
             lights.append(light)

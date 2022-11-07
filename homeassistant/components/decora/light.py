@@ -54,10 +54,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up an Decora switch."""
     lights = []
     for address, device_config in config[CONF_DEVICES].items():
-        device = {}
-        device['name'] = device_config[CONF_NAME]
-        device['key'] = device_config[CONF_API_KEY]
-        device['address'] = address
+        device = {'name': device_config[CONF_NAME], 'key': device_config[CONF_API_KEY], 'address': address}
         light = DecoraLight(device)
         lights.append(light)
 

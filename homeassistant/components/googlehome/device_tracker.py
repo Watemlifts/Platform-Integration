@@ -67,11 +67,7 @@ class GoogleHomeDeviceScanner(DeviceScanner):
 
             name = "{} {}".format(self.host, device['mac_address'])
 
-            attributes = {}
-            attributes['btle_mac_address'] = device['mac_address']
-            attributes['ghname'] = google_home_name
-            attributes['rssi'] = device['rssi']
-            attributes['source_type'] = 'bluetooth'
+            attributes = {'btle_mac_address': device['mac_address'], 'ghname': google_home_name, 'rssi': device['rssi'], 'source_type': 'bluetooth'}
             if device['name']:
                 attributes['name'] = device['name']
 

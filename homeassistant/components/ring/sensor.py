@@ -112,15 +112,7 @@ class RingSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        attrs = {}
-
-        attrs[ATTR_ATTRIBUTION] = ATTRIBUTION
-        attrs['device_id'] = self._data.id
-        attrs['firmware'] = self._data.firmware
-        attrs['kind'] = self._data.kind
-        attrs['timezone'] = self._data.timezone
-        attrs['type'] = self._data.family
-        attrs['wifi_name'] = self._data.wifi_name
+        attrs = {ATTR_ATTRIBUTION: ATTRIBUTION, 'device_id': self._data.id, 'firmware': self._data.firmware, 'kind': self._data.kind, 'timezone': self._data.timezone, 'type': self._data.family, 'wifi_name': self._data.wifi_name}
 
         if self._extra and self._sensor_type.startswith('last_'):
             attrs['created_at'] = self._extra['created_at']

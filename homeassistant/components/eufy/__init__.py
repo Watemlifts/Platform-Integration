@@ -58,11 +58,7 @@ def setup(hass, config):
         kind = device_info['type']
         if kind not in EUFY_DISPATCH:
             continue
-        device = {}
-        device['address'] = device_info['address']
-        device['code'] = device_info['access_token']
-        device['type'] = device_info['type']
-        device['name'] = device_info['name']
+        device = {'address': device_info['address'], 'code': device_info['access_token'], 'type': device_info['type'], 'name': device_info['name']}
         discovery.load_platform(hass, EUFY_DISPATCH[kind], DOMAIN, device,
                                 config)
 

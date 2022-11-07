@@ -85,12 +85,7 @@ class RingBinarySensor(BinarySensorDevice):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        attrs = {}
-        attrs[ATTR_ATTRIBUTION] = ATTRIBUTION
-
-        attrs['device_id'] = self._data.id
-        attrs['firmware'] = self._data.firmware
-        attrs['timezone'] = self._data.timezone
+        attrs = {ATTR_ATTRIBUTION: ATTRIBUTION, 'device_id': self._data.id, 'firmware': self._data.firmware, 'timezone': self._data.timezone}
 
         if self._data.alert and self._data.alert_expires_at:
             attrs['expires_at'] = self._data.alert_expires_at

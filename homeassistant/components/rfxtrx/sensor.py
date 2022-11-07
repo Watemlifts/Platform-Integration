@@ -95,8 +95,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
                 data_type = _data_type
                 break
         new_sensor = RfxtrxSensor(event, pkt_id, data_type)
-        sub_sensors = {}
-        sub_sensors[new_sensor.data_type] = new_sensor
+        sub_sensors = {new_sensor.data_type: new_sensor}
         rfxtrx.RFX_DEVICES[device_id] = sub_sensors
         add_entities([new_sensor])
 

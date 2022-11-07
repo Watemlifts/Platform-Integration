@@ -143,10 +143,7 @@ class WazeTravelTime(Entity):
         if self._waze_data.duration is None:
             return None
 
-        res = {ATTR_ATTRIBUTION: ATTRIBUTION}
-        res[ATTR_DURATION] = self._waze_data.duration
-        res[ATTR_DISTANCE] = self._waze_data.distance
-        res[ATTR_ROUTE] = self._waze_data.route
+        res = {ATTR_ATTRIBUTION: ATTRIBUTION, ATTR_DURATION: self._waze_data.duration, ATTR_DISTANCE: self._waze_data.distance, ATTR_ROUTE: self._waze_data.route}
         return res
 
     def _get_location_from_entity(self, entity_id):

@@ -28,10 +28,7 @@ async def async_setup_platform(hass,
         entity_id = ENTITY_ID_FORMAT.format(slugify(cover['name']))
         entity_config = discovery_info.get(entity_id, {})
         default_reverse = discovery_info[CONF_DEFAULT_REVERSE]
-        cover_config = {}
-        cover_config['target_id'] = cover['targetID']
-        cover_config['name'] = cover['name']
-        cover_config['reverse'] = entity_config.get('reverse', default_reverse)
+        cover_config = {'target_id': cover['targetID'], 'name': cover['name'], 'reverse': entity_config.get('reverse', default_reverse)}
         cover_list.append(SomfyShade(somfy_mylink, **cover_config))
         _LOGGER.info('Adding Somfy Cover: %s with targetID %s',
                      cover_config['name'], cover_config['target_id'])

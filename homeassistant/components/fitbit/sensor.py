@@ -421,9 +421,7 @@ class FitbitSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        attrs = {}
-
-        attrs[ATTR_ATTRIBUTION] = ATTRIBUTION
+        attrs = {ATTR_ATTRIBUTION: ATTRIBUTION}
 
         if self.extra:
             attrs['model'] = self.extra.get('deviceVersion')

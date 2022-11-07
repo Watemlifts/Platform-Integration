@@ -106,8 +106,7 @@ class USPSMailSensor(Entity):
     @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        attr = {}
-        attr[ATTR_ATTRIBUTION] = self._usps.attribution
+        attr = {ATTR_ATTRIBUTION: self._usps.attribution}
         try:
             attr[ATTR_DATE] = str(self._usps.mail[0]['date'])
         except IndexError:

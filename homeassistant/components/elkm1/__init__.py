@@ -116,8 +116,7 @@ async def async_setup(hass: HomeAssistant, hass_config: ConfigType) -> bool:
             values[rng[0]-1:rng[1]] = [set_to] * (rng[1] - rng[0] + 1)
 
     conf = hass_config[DOMAIN]
-    config = {'temperature_unit': conf[CONF_TEMPERATURE_UNIT]}
-    config['panel'] = {'enabled': True, 'included': [True]}
+    config = {'temperature_unit': conf[CONF_TEMPERATURE_UNIT], 'panel': {'enabled': True, 'included': [True]}}
 
     for item, max_ in configs.items():
         config[item] = {'enabled': conf[item][CONF_ENABLED],
@@ -206,8 +205,7 @@ class ElkEntity(Entity):
 
     def initial_attrs(self):
         """Return the underlying element's attributes as a dict."""
-        attrs = {}
-        attrs['index'] = self._element.index + 1
+        attrs = {'index': self._element.index + 1}
         return attrs
 
     def _element_changed(self, element, changeset):
