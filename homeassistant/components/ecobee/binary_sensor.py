@@ -10,7 +10,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     if discovery_info is None:
         return
     data = ecobee.NETWORK
-    dev = list()
+    dev = []
     for index in range(len(data.ecobee.thermostats)):
         for sensor in data.ecobee.get_remote_sensors(index):
             for item in sensor['capability']:

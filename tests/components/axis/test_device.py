@@ -132,7 +132,7 @@ async def test_device_reset(hass):
 async def test_device_not_accessible():
     """Failed setup schedules a retry of setup."""
     hass = Mock()
-    hass.data = dict()
+    hass.data = {}
     entry = Mock()
     entry.data = ENTRY_CONFIG
     entry.options = ENTRY_OPTIONS

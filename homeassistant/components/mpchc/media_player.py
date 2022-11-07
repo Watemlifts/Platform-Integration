@@ -50,7 +50,7 @@ class MpcHcDevice(MediaPlayerDevice):
         """Initialize the MPC-HC device."""
         self._name = name
         self._url = url
-        self._player_variables = dict()
+        self._player_variables = {}
 
     def update(self):
         """Get the latest details."""

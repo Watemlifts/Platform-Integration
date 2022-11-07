@@ -102,7 +102,7 @@ class TestGoogleWifiSensor(unittest.TestCase):
             conditions = google_wifi.MONITORED_CONDITIONS.keys()
             self.api = google_wifi.GoogleWifiAPI("localhost", conditions)
         self.name = NAME
-        self.sensor_dict = dict()
+        self.sensor_dict = {}
         for condition, cond_list in google_wifi.MONITORED_CONDITIONS.items():
             sensor = google_wifi.GoogleWifiSensor(
                 self.api, self.name, condition)
