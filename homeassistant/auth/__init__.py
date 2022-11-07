@@ -469,8 +469,4 @@ class AuthManager:
         A user should be an owner if it is the first non-system user that is
         being created.
         """
-        for user in await self._store.async_get_users():
-            if not user.system_generated:
-                return False
-
-        return True
+        return all(user.system_generated for user in await self._store.async_get_users())
