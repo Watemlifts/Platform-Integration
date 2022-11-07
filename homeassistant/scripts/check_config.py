@@ -335,7 +335,7 @@ async def check_ha_config_file(hass):
     core_config.pop(CONF_PACKAGES, None)
 
     # Filter out repeating config sections
-    components = set(key.split(' ')[0] for key in config.keys())
+    components = {key.split(' ')[0] for key in config.keys()}
 
     # Process and validate config
     for domain in components:

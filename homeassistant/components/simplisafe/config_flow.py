@@ -15,9 +15,8 @@ from .const import DEFAULT_SCAN_INTERVAL, DOMAIN
 @callback
 def configured_instances(hass):
     """Return a set of configured SimpliSafe instances."""
-    return set(
-        entry.data[CONF_USERNAME]
-        for entry in hass.config_entries.async_entries(DOMAIN))
+    return {entry.data[CONF_USERNAME]
+        for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
 @config_entries.HANDLERS.register(DOMAIN)

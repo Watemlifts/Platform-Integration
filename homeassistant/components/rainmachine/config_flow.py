@@ -16,9 +16,8 @@ from .const import DEFAULT_PORT, DEFAULT_SCAN_INTERVAL, DEFAULT_SSL, DOMAIN
 @callback
 def configured_instances(hass):
     """Return a set of configured RainMachine instances."""
-    return set(
-        entry.data[CONF_IP_ADDRESS]
-        for entry in hass.config_entries.async_entries(DOMAIN))
+    return {entry.data[CONF_IP_ADDRESS]
+        for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
 @config_entries.HANDLERS.register(DOMAIN)

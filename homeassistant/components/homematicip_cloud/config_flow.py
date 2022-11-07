@@ -15,8 +15,8 @@ from .hap import HomematicipAuth
 @callback
 def configured_haps(hass: HomeAssistant) -> Set[str]:
     """Return a set of the configured access points."""
-    return set(entry.data[HMIPC_HAPID] for entry
-               in hass.config_entries.async_entries(HMIPC_DOMAIN))
+    return {entry.data[HMIPC_HAPID] for entry
+               in hass.config_entries.async_entries(HMIPC_DOMAIN)}
 
 
 @config_entries.HANDLERS.register(HMIPC_DOMAIN)

@@ -15,8 +15,8 @@ from .const import CONF_PASSIVE, DOMAIN, HOME_ZONE
 @callback
 def configured_zones(hass):
     """Return a set of the configured zones."""
-    return set((slugify(entry.data[CONF_NAME])) for
-               entry in hass.config_entries.async_entries(DOMAIN))
+    return {(slugify(entry.data[CONF_NAME])) for
+               entry in hass.config_entries.async_entries(DOMAIN)}
 
 
 @config_entries.HANDLERS.register(DOMAIN)

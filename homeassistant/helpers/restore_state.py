@@ -117,7 +117,7 @@ class RestoreStateData():
         """
         now = dt_util.utcnow()
         all_states = self.hass.states.async_all()
-        current_entity_ids = set(state.entity_id for state in all_states)
+        current_entity_ids = {state.entity_id for state in all_states}
 
         # Start with the currently registered states
         stored_states = [StoredState(state, now) for state in all_states

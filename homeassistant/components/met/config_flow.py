@@ -13,9 +13,8 @@ from .const import DOMAIN, HOME_LOCATION_NAME, CONF_TRACK_HOME
 @callback
 def configured_instances(hass):
     """Return a set of configured SimpliSafe instances."""
-    return set(
-        entry.data[CONF_NAME]
-        for entry in hass.config_entries.async_entries(DOMAIN))
+    return {entry.data[CONF_NAME]
+        for entry in hass.config_entries.async_entries(DOMAIN)}
 
 
 @config_entries.HANDLERS.register(DOMAIN)
