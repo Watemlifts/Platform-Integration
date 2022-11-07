@@ -684,7 +684,6 @@ def patch_yaml_files(files_dict, endswith=True):
         raise FileNotFoundError("File not found: {}".format(fname))
 
     return patch.object(yaml_loader, 'open', mock_open_f, create=True)
-    return patch.object(yaml_dumper, 'open', mock_open_f, create=True)
 
 
 def mock_coro(return_value=None, exception=None):
