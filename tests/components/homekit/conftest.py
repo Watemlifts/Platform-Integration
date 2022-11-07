@@ -25,5 +25,5 @@ def events(hass):
     events = []
     hass.bus.async_listen(
         EVENT_HOMEKIT_CHANGED,
-        ha_callback(lambda e: events.append(e)))
+        ha_callback(events.append))
     yield events

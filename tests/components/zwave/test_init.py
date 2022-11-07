@@ -766,8 +766,8 @@ class TestZWaveDeviceEntityValues(unittest.TestCase):
 
         assert values.primary is self.primary
         assert len(list(values)) == 3
-        assert sorted(list(values), key=lambda a: id(a)) == \
-            sorted([self.primary, None, None], key=lambda a: id(a))
+        assert sorted(list(values), key=id) == \
+            sorted([self.primary, None, None], key=id)
         assert not discovery.async_load_platform.called
 
         values.check_value(self.secondary)
@@ -775,8 +775,8 @@ class TestZWaveDeviceEntityValues(unittest.TestCase):
 
         assert values.secondary is self.secondary
         assert len(list(values)) == 3
-        assert sorted(list(values), key=lambda a: id(a)) == \
-            sorted([self.primary, self.secondary, None], key=lambda a: id(a))
+        assert sorted(list(values), key=id) == \
+            sorted([self.primary, self.secondary, None], key=id)
 
         assert discovery.async_load_platform.called
         assert len(discovery.async_load_platform.mock_calls) == 1
@@ -795,9 +795,9 @@ class TestZWaveDeviceEntityValues(unittest.TestCase):
 
         assert values.optional is self.optional
         assert len(list(values)) == 3
-        assert sorted(list(values), key=lambda a: id(a)) == \
+        assert sorted(list(values), key=id) == \
             sorted([self.primary, self.secondary, self.optional],
-                   key=lambda a: id(a))
+                   key=id)
         assert not discovery.async_load_platform.called
 
         assert values._entity.value_added.called
@@ -836,9 +836,9 @@ class TestZWaveDeviceEntityValues(unittest.TestCase):
         assert values.secondary is self.secondary
         assert values.optional is self.optional
         assert len(list(values)) == 3
-        assert sorted(list(values), key=lambda a: id(a)) == \
+        assert sorted(list(values), key=id) == \
             sorted([self.primary, self.secondary, self.optional],
-                   key=lambda a: id(a))
+                   key=id)
 
         assert discovery.async_load_platform.called
         assert len(discovery.async_load_platform.mock_calls) == 1

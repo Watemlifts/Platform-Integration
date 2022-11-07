@@ -359,7 +359,7 @@ class TestPilightCallrateThrottler(unittest.TestCase):
         runs = []
 
         limit = pilight.CallRateDelayThrottle(self.hass, 0.0)
-        action = limit.limited(lambda x: runs.append(x))
+        action = limit.limited(runs.append)
 
         for i in range(3):
             action(i)
@@ -372,7 +372,7 @@ class TestPilightCallrateThrottler(unittest.TestCase):
         delay = 5.0
 
         limit = pilight.CallRateDelayThrottle(self.hass, delay)
-        action = limit.limited(lambda x: runs.append(x))
+        action = limit.limited(runs.append)
 
         for i in range(3):
             action(i)

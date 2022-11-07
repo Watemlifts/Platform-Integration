@@ -146,10 +146,10 @@ def test_stage_shutdown():
     test_all = []
 
     hass.bus.listen(
-        EVENT_HOMEASSISTANT_STOP, lambda event: test_stop.append(event))
+        EVENT_HOMEASSISTANT_STOP, test_stop.append)
     hass.bus.listen(
-        EVENT_HOMEASSISTANT_CLOSE, lambda event: test_close.append(event))
-    hass.bus.listen('*', lambda event: test_all.append(event))
+        EVENT_HOMEASSISTANT_CLOSE, test_close.append)
+    hass.bus.listen('*', test_all.append)
 
     hass.stop()
 
