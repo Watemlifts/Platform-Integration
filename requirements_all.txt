@@ -1674,7 +1674,7 @@ slacker==0.13.0
 sleepyq==0.6
 
 # homeassistant.components.xmpp
-slixmpp==1.4.2
+slixmpp==1.8.3
 
 # homeassistant.components.smappee
 smappy==0.2.16
