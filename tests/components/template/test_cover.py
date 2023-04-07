@@ -124,8 +124,7 @@ async def test_template_position(hass, calls):
     await hass.async_block_till_done()
 
     entity = hass.states.get('cover.test')
-    attrs = {}
-    attrs['position'] = 42
+    attrs = {'position': 42}
     hass.states.async_set(
         entity.entity_id, entity.state,
         attributes=attrs)
