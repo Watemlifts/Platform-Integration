@@ -42,7 +42,4 @@ def setup(hass, config):
 
 def is_ignored(hass, name):
     """Determine if a load, switch, or scene should be ignored."""
-    for prefix in hass.data['litejet_config'].get(CONF_EXCLUDE_NAMES, []):
-        if name.startswith(prefix):
-            return True
-    return False
+    return any(name.startswith(prefix) for prefix in hass.data['litejet_config'].get(CONF_EXCLUDE_NAMES, []))

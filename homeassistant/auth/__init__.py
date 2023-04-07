@@ -85,10 +85,7 @@ class AuthManager:
 
         Should be removed when we removed legacy_api_password auth providers.
         """
-        for provider_type, _ in self._providers:
-            if provider_type == 'legacy_api_password':
-                return True
-        return False
+        return any(provider_type == 'legacy_api_password' for provider_type, _ in self._providers)
 
     @property
     def auth_providers(self) -> List[AuthProvider]:
