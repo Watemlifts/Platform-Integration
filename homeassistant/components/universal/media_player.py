@@ -327,8 +327,8 @@ class UniversalMediaPlayer(MediaPlayerDevice):
         if SERVICE_TURN_OFF in self._cmds:
             flags |= SUPPORT_TURN_OFF
 
-        if any([cmd in self._cmds for cmd in [SERVICE_VOLUME_UP,
-                                              SERVICE_VOLUME_DOWN]]):
+        if any(cmd in self._cmds for cmd in [SERVICE_VOLUME_UP,
+                                              SERVICE_VOLUME_DOWN]):
             flags |= SUPPORT_VOLUME_STEP
         if SERVICE_VOLUME_SET in self._cmds:
             flags |= SUPPORT_VOLUME_SET

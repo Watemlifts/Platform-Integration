@@ -91,8 +91,8 @@ class TrustedNetworksAuthProvider(AuthProvider):
                 available_users = [
                     user for user in available_users
                     if (user.id in user_list or
-                        any([group.id in flattened_group_list
-                             for group in user.groups]))
+                        any(group.id in flattened_group_list
+                             for group in user.groups))
                 ]
                 break
 
