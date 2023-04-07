@@ -301,7 +301,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     done, _ = await asyncio.wait([
         _async_setup_platform(hass, cfg, async_add_entities, None)
         for cfg in config])
-    if any([task.exception() for task in done]):
+    if any(task.exception() for task in done):
         exceptions = [task.exception() for task in done]
         for exception in exceptions:
             _LOGGER.debug("Failed to setup chromecast", exc_info=exception)

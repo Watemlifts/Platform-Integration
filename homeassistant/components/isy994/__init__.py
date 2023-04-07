@@ -162,8 +162,8 @@ def _check_for_insteon_type(hass: HomeAssistant, node,
     device_type = node.type
     domains = SUPPORTED_DOMAINS if not single_domain else [single_domain]
     for domain in domains:
-        if any([device_type.startswith(t) for t in
-                set(NODE_FILTERS[domain]['insteon_type'])]):
+        if any(device_type.startswith(t) for t in
+                set(NODE_FILTERS[domain]['insteon_type'])):
 
             # Hacky special-case just for FanLinc, which has a light module
             # as one of its nodes. Note that this special-case is not necessary
