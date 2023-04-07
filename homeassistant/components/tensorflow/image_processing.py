@@ -311,7 +311,7 @@ class TensorFlowImageProcessor(ImageProcessingEntity):
                 continue
 
             # If we got here, we should include it
-            if category not in matches.keys():
+            if category not in matches:
                 matches[category] = []
             matches[category].append({
                 'score': float(score),
