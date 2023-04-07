@@ -219,7 +219,7 @@ def parse_time_expression(parameter: Any, min_value: int, max_value: int) \
         -> List[int]:
     """Parse the time expression part and return a list of times to match."""
     if parameter is None or parameter == MATCH_ALL:
-        res = [x for x in range(min_value, max_value + 1)]
+        res = list(range(min_value, max_value + 1))
     elif isinstance(parameter, str) and parameter.startswith('/'):
         parameter = int(parameter[1:])
         res = [x for x in range(min_value, max_value + 1)

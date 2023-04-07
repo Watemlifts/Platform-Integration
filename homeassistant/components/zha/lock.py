@@ -22,7 +22,7 @@ STATE_LIST = [
     STATE_UNLOCKED
 ]
 
-VALUE_TO_STATE = {i: state for i, state in enumerate(STATE_LIST)}
+VALUE_TO_STATE = dict(enumerate(STATE_LIST))
 
 
 async def async_setup_platform(hass, config, async_add_entities,

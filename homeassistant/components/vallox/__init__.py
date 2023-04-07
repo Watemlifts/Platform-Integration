@@ -237,7 +237,7 @@ class ValloxServiceHandler:
     async def async_handle(self, service):
         """Dispatch a service call."""
         method = SERVICE_TO_METHOD.get(service.service)
-        params = {key: value for key, value in service.data.items()}
+        params = dict(service.data.items())
 
         if not hasattr(self, method['method']):
             _LOGGER.error("Service not implemented: %s", method['method'])

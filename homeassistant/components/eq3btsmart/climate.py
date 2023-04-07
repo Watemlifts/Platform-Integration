@@ -124,7 +124,7 @@ class EQ3BTSmartThermostat(ClimateDevice):
     @property
     def operation_list(self):
         """Return the list of available operation modes."""
-        return [x for x in self.modes.values()]
+        return list(self.modes.values())
 
     def set_operation_mode(self, operation_mode):
         """Set operation mode."""
