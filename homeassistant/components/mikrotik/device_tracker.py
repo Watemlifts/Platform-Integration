@@ -154,7 +154,7 @@ class MikrotikScanner(DeviceScanner):
                 librouteros.exceptions.ConnectionError) as api_error:
             _LOGGER.error("Connection error: %s", api_error)
             self.connect_to_device()
-        return [device for device in self.last_results]
+        return list(self.last_results)
 
     def get_device_name(self, device):
         """Return the name of the given device or None if we don't know."""

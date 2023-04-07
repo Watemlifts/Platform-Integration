@@ -212,7 +212,7 @@ class OnkyoDevice(MediaPlayerDevice):
                 break
             else:
                 self._current_source = '_'.join(
-                    [i for i in current_source_tuples[1]])
+                    list(current_source_tuples[1]))
         self._muted = bool(mute_raw[1] == 'on')
         self._volume = volume_raw[1] / self._max_volume
 
@@ -361,7 +361,7 @@ class OnkyoDeviceZone(OnkyoDevice):
                 break
             else:
                 self._current_source = '_'.join(
-                    [i for i in current_source_tuples[1]])
+                    list(current_source_tuples[1]))
         self._muted = bool(mute_raw[1] == 'on')
 
         if self._supports_volume:

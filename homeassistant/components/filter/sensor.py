@@ -201,7 +201,7 @@ class SensorFilter(Entity):
                     history.get_last_state_changes, self.hass,
                     largest_window_items, entity_id=self._entity))
                 history_list.extend(
-                    [state for state in filter_history[self._entity]])
+                    list(filter_history[self._entity]))
             if largest_window_time > timedelta(seconds=0):
                 start = dt_util.utcnow() - largest_window_time
                 filter_history = await self.hass.async_add_job(partial(
