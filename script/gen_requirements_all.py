@@ -323,24 +323,16 @@ def generate_requirements_list(reqs):
 
 def requirements_all_output(reqs):
     """Generate output for requirements_all."""
-    output = []
-    output.append('# Home Assistant core')
-    output.append('\n')
-    output.append('\n'.join(core_requirements()))
-    output.append('\n')
-    output.append(generate_requirements_list(reqs))
+    output = ['# Home Assistant core', '\n', '\n'.join(core_requirements()), '\n', generate_requirements_list(reqs)]
 
     return ''.join(output)
 
 
 def requirements_test_output(reqs):
     """Generate output for test_requirements."""
-    output = []
-    output.append('# Home Assistant test')
-    output.append('\n')
+    output = ['# Home Assistant test', '\n', '\n']
     with open('requirements_test.txt') as test_file:
         output.append(test_file.read())
-    output.append('\n')
     filtered = {key: value for key, value in reqs.items()
                 if any(
                     re.search(r'(^|#){}($|[=><])'.format(re.escape(ign)),
