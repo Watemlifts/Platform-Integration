@@ -104,7 +104,7 @@ class CiscoDeviceScanner(DeviceScanner):
 
             # Find the hostname
             initial_line = cisco_ssh.before.decode('utf-8').splitlines()
-            router_hostname = initial_line[len(initial_line) - 1]
+            router_hostname = initial_line[-1]
             router_hostname += "#"
             # Set the discovered hostname as prompt
             regex_expression = ('(?i)^%s' % router_hostname).encode()
