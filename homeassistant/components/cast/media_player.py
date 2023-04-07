@@ -490,8 +490,7 @@ class CastDevice(MediaPlayerDevice):
         self._cast_info = cast_info  # type: ChromecastInfo
         self.services = None
         if cast_info.service:
-            self.services = set()
-            self.services.add(cast_info.service)
+            self.services = {cast_info.service}
         self._chromecast = None  # type: Optional[pychromecast.Chromecast]
         self.cast_status = None
         self.media_status = None
